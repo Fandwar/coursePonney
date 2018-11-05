@@ -1,0 +1,6 @@
+<p *ngIf="courses.length == 0">Pas de course actuelle</p>
+<ul *ngIf="courses.length > 0">
+  <li *ngFor="let c of courses">
+    <app-course [race]="c" ></app-course>
+  </li>
+</ul>

@@ -1,0 +1,9 @@
+<h1>Entrer un nouveau poney</h1>
+<form  (ngSubmit)="onSubmit()" >
+        Nom : <input type="text" id="name" pInputText name="name" required [(ngModel)]="model.name" pTooltip="Entrez le nom" tooltipPosition="top"/>
+        Age : <input type="text" id="age" name="age" pInputText required [(ngModel)]="model.age" pTooltip="Entrez l'age" tooltipPosition="top"/>
+        Poids : <input type="text" id="weight" pInputText name="weight" required [(ngModel)]="model.weight" pTooltip="Entrez le poid" tooltipPosition="top" />
+        Couleur : <input type="text" id="color"  name="color" required [(ngModel)]="model.couleur" pInputText pTooltip="Entrez la couleur" tooltipPosition="top"/>
+    <br><br>
+    <button type="submit" >Enregistrer</button>
+</form>
