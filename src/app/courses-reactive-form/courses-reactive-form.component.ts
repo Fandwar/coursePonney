@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { CourseService } from '../course.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PONIES } from '../ponies-mock';
+import { Pony } from '../pony';
 
 @Component({
   selector: 'app-courses-reactive-form',
@@ -12,10 +14,9 @@ import { Router } from '@angular/router';
 export class CoursesReactiveFormComponent implements OnInit {
 
   courseForm = this.fb.group({
-    name: ['nom', Validators.required],
-    age: ['0', Validators.required],
-    color: ['vert', Validators.required],
-    weight: ['0', Validators.required]
+    ponies: [ 'pas de ponies' , Validators.required],
+    location: ['Montpellier', Validators.required],
+    date: ['vert', Validators.required]
   });
 
   constructor(private fb: FormBuilder, private services: CourseService, private router: Router ) { }
