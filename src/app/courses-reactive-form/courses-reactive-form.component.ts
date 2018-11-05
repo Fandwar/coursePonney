@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PONIES } from '../ponies-mock';
 import { Pony } from '../pony';
+import { PonyService } from '../pony.service';
 
 @Component({
   selector: 'app-courses-reactive-form',
@@ -13,13 +14,18 @@ import { Pony } from '../pony';
 })
 export class CoursesReactiveFormComponent implements OnInit {
 
+  listPony: Array<Pony>;
+  selectedPony: Array<Pony>;
   courseForm = this.fb.group({
-    ponies: [ 'pas de ponies' , Validators.required],
+    ponies: [ null , Validators.required],
     location: ['Montpellier', Validators.required],
-    date: ['vert', Validators.required]
+    date: [new Date(), Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private services: CourseService, private router: Router ) { }
+  constructor(private fb: FormBuilder, private servicep: PonyService, private services: CourseService, private router: Router ) { 
+    this.servicep.getAllPonies().subscribe( p => this.listPony = p );
+    this.selectedPony = [];
+  }
 
   ngOnInit() {
   }
@@ -27,12 +33,15 @@ export class CoursesReactiveFormComponent implements OnInit {
 
   onSubmit(): void{
 
+    const dateFinal = new Date( this.courseForm.value.date.year, this.courseForm.value.date.month, this.courseForm.value.date.day );
+    
     const c: Course = this.courseForm.value;
     c.id = 0;
+    c.ponies = this.selectedPony;
+    c.date = dateFinal;
     console.log(c);
     this.services.addCourse(c);
-    this.router.navigate(['/Courses']);
-
+    this.router.navigate(['/']);
   }
 
 }

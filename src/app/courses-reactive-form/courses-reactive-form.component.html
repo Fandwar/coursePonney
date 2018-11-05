@@ -1,12 +1,12 @@
 <h1>Entrer une nouvelle course</h1>
-<form [formGroup]="ponyForm" (ngSubmit)="onSubmit()" >
-Location : <input type="text" id="location" formControlName="location" name="location"  [(ngModel)]="model.location" pInputText pTooltip="Entrez le lieu" tooltipPosition="top" />
-Date : <ngb-datepicker #dp [(ngModel)]="dateModel" formControlName="date"  ></ngb-datepicker>
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()" >
+Location : <input type="text" id="location" formControlName="location" name="location"  pInputText pTooltip="Entrez le lieu" tooltipPosition="top" />
+Date : <ngb-datepicker #dp formControlName="date"  ></ngb-datepicker>
 <br>
 Ponies : 
 
-<p-pickList [source]="listPony" [target]="model.ponies" formControlName="ponies" [responsive]="true" dragdrop="true" dragdropScope="listPony" >
-    <ng-template let-p pTemplate="item">
+<p-pickList [source]="listPony" [target]="selectedPony" [responsive]="true" dragdrop="true"  >
+    <ng-template let-p pTemplate="listPony">
       <div class="ui-helper-clearfix" >
         {{p.name}}
       </div>
@@ -19,9 +19,9 @@ Ponies :
 
 
 <p>
-    Valeur : {{ ponyForm.value | json }}
+    Valeur : {{ courseForm.value | json }}
   </p>
   
   <p>
-    Status : {{ ponyForm.status }}
+    Status : {{ courseForm.status }}
   </p>

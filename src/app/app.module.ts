@@ -25,7 +25,7 @@ const routes: Routes = [
   { path:'', component: CoursesComponent },
   { path:'Ponies', component: PoniesComponent },
   { path:'AddPony', component: PonyReactiveFormComponent },
-  { path:'AddCourse', component: CourseFormComponent }
+  { path:'AddCourse', component: CoursesReactiveFormComponent }
 ];
 
 @NgModule({
