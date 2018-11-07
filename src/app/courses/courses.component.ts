@@ -9,7 +9,7 @@ import { CourseService } from '../course.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  courses: Array<Course>;
+  courses: Array<Course> =[];
   constructor( private service: CourseService ) { 
     this.service.getAllCourse().subscribe(c => this.courses = c);
   }

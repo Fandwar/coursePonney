@@ -36,12 +36,12 @@ export class CoursesReactiveFormComponent implements OnInit {
     const dateFinal = new Date( this.courseForm.value.date.year, this.courseForm.value.date.month, this.courseForm.value.date.day );
     
     const c: Course = this.courseForm.value;
-    c.id = 0;
+    console.log(c);
     c.ponies = this.selectedPony;
     c.date = dateFinal;
-    console.log(c);
     this.services.addCourse(c);
-    this.router.navigate(['/']);
+    this.selectedPony.forEach((x) => c.ponies.push(x));
+    
   }
 
 }

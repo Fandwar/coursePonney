@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from '../course';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-course',
@@ -8,11 +9,12 @@ import { Course } from '../course';
 })
 export class CourseComponent implements OnInit {
   @Input() race:Course;
-  constructor() { 
+  constructor( private service: CourseService ) { 
     //this.race = new Course( 'Le chateau', new Date('12-12-2012') );
    }
 
   ngOnInit() {
+    this.service.getAllCourse();
   }
 
 }

@@ -27,9 +27,8 @@ export class PonyReactiveFormComponent implements OnInit {
   onSubmit(): void{
 
     const p: Pony = this.ponyForm.value;
-    p.id = 0;
     this.services.addPony(p);
-    this.router.navigate(['/Ponies']);
+    this.router.navigate(['/Ponies/']);
 
   }
 
