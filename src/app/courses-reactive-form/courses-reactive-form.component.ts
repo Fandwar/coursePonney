@@ -23,8 +23,10 @@ export class CoursesReactiveFormComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private servicep: PonyService, private services: CourseService, private router: Router ) { 
+    this.listPony = [];
     this.servicep.getAllPonies().subscribe( p => this.listPony = p );
     this.selectedPony = [];
+    
   }
 
   ngOnInit() {
@@ -36,11 +38,10 @@ export class CoursesReactiveFormComponent implements OnInit {
     const dateFinal = new Date( this.courseForm.value.date.year, this.courseForm.value.date.month, this.courseForm.value.date.day );
     
     const c: Course = this.courseForm.value;
-    console.log(c);
     c.ponies = this.selectedPony;
     c.date = dateFinal;
     this.services.addCourse(c);
-    this.selectedPony.forEach((x) => c.ponies.push(x));
+    this.selectedPony.forEach((x) => this.listPony.push(x));
     
   }
 

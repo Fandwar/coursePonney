@@ -2,6 +2,8 @@
 
   <li *ngFor="let p of ponies" >
     <app-pony [pony]="p" ></app-pony>
+    <a routerLink='/Pony/{{p.id}}'>Afficher</a>
+    <a routerLink='/UpdatePony/{{p.id}}'>Modifier</a>
   </li>
 
 </ul>

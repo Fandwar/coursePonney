@@ -21,12 +21,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PickListModule} from 'primeng/picklist';
 import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-form.component';
 import { CoursesReactiveFormComponent } from './courses-reactive-form/courses-reactive-form.component';
+import { PonyByIdComponent } from './pony-by-id/pony-by-id.component';
 
 const routes: Routes = [
   { path:'', component: CoursesComponent },
   { path:'Ponies', component: PoniesComponent },
   { path:'AddPony', component: PonyReactiveFormComponent },
-  { path:'AddCourse', component: CoursesReactiveFormComponent }
+  { path:'UpdatePony/:id', component: PonyReactiveFormComponent },
+  { path:'AddCourse', component: CoursesReactiveFormComponent },
+  { path:'Pony/:id', component: PonyByIdComponent }
 ];
 
 @NgModule({
@@ -39,7 +42,8 @@ const routes: Routes = [
     PonyFormComponent,
     CourseFormComponent,
     PonyReactiveFormComponent,
-    CoursesReactiveFormComponent
+    CoursesReactiveFormComponent,
+    PonyByIdComponent
   ],
   imports: [
     BrowserModule,
