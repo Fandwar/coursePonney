@@ -17,4 +17,8 @@ export class PonyComponent implements OnInit {
     this.service.getAllPonies();
   }
 
+  ahah() {
+
+  }
+
 }

@@ -47,7 +47,6 @@ export class PonyReactiveFormComponent implements OnInit {
     } else {
       const p: Pony = this.ponyForm.value;
       const idPony = parseInt(this.router.snapshot.paramMap.get('id') , 0);
-      console.log(idPony);
       this.services.uptdatePony(idPony, p);
     }
     
