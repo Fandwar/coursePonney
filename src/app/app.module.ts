@@ -22,6 +22,7 @@ import {PickListModule} from 'primeng/picklist';
 import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-form.component';
 import { CoursesReactiveFormComponent } from './courses-reactive-form/courses-reactive-form.component';
 import { PonyByIdComponent } from './pony-by-id/pony-by-id.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
   { path:'', component: CoursesComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
     CourseFormComponent,
     PonyReactiveFormComponent,
     CoursesReactiveFormComponent,
-    PonyByIdComponent
+    PonyByIdComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

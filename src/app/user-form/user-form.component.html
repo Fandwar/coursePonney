@@ -1,0 +1,7 @@
+<h1>Se connecter</h1>
+<form  (ngSubmit)="onSubmit()" >
+        Login : <input type="text" id="login" name="login" pInputTextrequired [(ngModel)]="model.login" pTooltip="Entrez le login" tooltipPosition="top"/>
+        mdp : <input type="text" id="pass" name="pass" pInputText required [(ngModel)]="model.pass" pTooltip="Entrez le mot de passe" tooltipPosition="top"/>
+    <br><br>
+    <button type="submit" >Se connecter</button>
+</form>

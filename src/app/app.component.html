@@ -1,4 +1,7 @@
 <h1> {{title}} </h1>
+<h3 *ngIf="identifiant" >Bienvenue {{ identifiant }} </h3>
+<app-user-form *ngIf="!identifiant"></app-user-form>
+<button  (click)="deconect()" >Se déconnecter</button>
 <nav>
   <a routerLink="/">Courses </a>
   <a routerLink="/Ponies">Poney </a>
