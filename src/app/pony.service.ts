@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { PONIES } from './ponies-mock';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AppComponent } from './app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class PonyService {
 
   addPony( pony:Pony ) :void {
     this.http.post(this.url + '/Ponies/', pony , this.httpOptions ).subscribe(() => this.router.navigate(['/Ponies']));
+  }
+
+  deletePony( id: number ) :void {
+    this.http.delete(this.url + '/Ponies/' + id , this.httpOptions ).subscribe(() => this.router.navigate(['/Ponies']));
   }
   
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-user-form',
@@ -12,7 +13,7 @@ export class UserFormComponent implements OnInit {
   model : User;
   identifiant: string;
 
-  constructor( private router: Router ) { 
+  constructor( private router: Router, private app : AppComponent ) { 
     this.model = new User();
    }
 
@@ -26,7 +27,7 @@ export class UserFormComponent implements OnInit {
     if( this.model.login === 'toto' && this.model.pass === 'pass' ){
       sessionStorage.setItem('user', this.model.login);
       this.identifiant = sessionStorage.getItem('user');
-      this.router.navigate(['/Ponies']);
+      this.app.ngOnInit();
 
     } else{
       console.log('Connection raté');

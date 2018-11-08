@@ -18,4 +18,8 @@ export class PoniesComponent implements OnInit {
   ngOnInit() {
   }
 
+  deletePony( id: number ){
+    this.service.deletePony(id);
+  }
+
 }

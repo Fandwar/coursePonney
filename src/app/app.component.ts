@@ -15,5 +15,6 @@ export class AppComponent {
 
   deconect( ){
     sessionStorage.removeItem('user');
+    this.ngOnInit();
   }
 }

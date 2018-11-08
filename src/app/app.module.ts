@@ -23,6 +23,7 @@ import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-fo
 import { CoursesReactiveFormComponent } from './courses-reactive-form/courses-reactive-form.component';
 import { PonyByIdComponent } from './pony-by-id/pony-by-id.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { PonyTransformPipe } from './pony-transform.pipe';
 
 const routes: Routes = [
   { path:'', component: CoursesComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
     PonyReactiveFormComponent,
     CoursesReactiveFormComponent,
     PonyByIdComponent,
-    UserFormComponent
+    UserFormComponent,
+    PonyTransformPipe
   ],
   imports: [
     BrowserModule,
