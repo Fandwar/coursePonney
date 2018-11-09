@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../course';
 import { CourseService } from '../course.service';
 
@@ -9,12 +9,18 @@ import { CourseService } from '../course.service';
 })
 export class CourseComponent implements OnInit {
   @Input() race:Course;
+  @Output() onClick = new EventEmitter<Course>();
   constructor( private service: CourseService ) { 
     //this.race = new Course( 'Le chateau', new Date('12-12-2012') );
    }
 
   ngOnInit() {
     this.service.getAllCourse();
+  }
+
+
+  addVote( course: Course ){
+    this.onClick.emit( course );
   }
 
 }
